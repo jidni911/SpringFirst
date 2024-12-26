@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <!DOCTYPE html>
     <html>
 
@@ -86,9 +88,37 @@
                 </div>
             </div>
         </section>
-        <footer>
+        <!-- <footer>
             <p>&copy; 2023 My Fantastic JSP Page</p>
-        </footer>
+        </footer> -->
+
+        <section id="userTable"></section>
+            <h2>User Information</h2>
+            <table class="table table-bordered" style="width: 80%; margin: auto;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.password}</td>
+                        <td>${user.gender}</td>
+                        <td>${user.address}</td>
+                    </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </section>
     </body>
 
     </html>
